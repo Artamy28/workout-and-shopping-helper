@@ -19,12 +19,15 @@ const WorkoutDetails = ({ workout }) => {
 			return;
 		}
 
-		const response = await fetch("/api/workouts/" + workout._id, {
-			method: "DELETE",
-			headers: {
-				Authorization: `Bearer ${user.token}`,
-			},
-		});
+		const response = await fetch(
+			"http://localhost:4000/api/workouts/" + workout._id,
+			{
+				method: "DELETE",
+				headers: {
+					Authorization: `Bearer ${user.token}`,
+				},
+			}
+		);
 
 		const data = await response.json();
 
@@ -50,14 +53,17 @@ const WorkoutDetails = ({ workout }) => {
 
 		const editedWorkout = { title, load, reps };
 
-		const response = await fetch("/api/workouts/" + workout._id, {
-			method: "PATCH",
-			body: JSON.stringify(editedWorkout),
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${user.token}`,
-			},
-		});
+		const response = await fetch(
+			"http://localhost:4000/api/workouts/" + workout._id,
+			{
+				method: "PATCH",
+				body: JSON.stringify(editedWorkout),
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${user.token}`,
+				},
+			}
+		);
 
 		const data = await response.json();
 
@@ -140,7 +146,7 @@ const WorkoutDetails = ({ workout }) => {
 								onChange={(e) => {
 									setReps(e.target.value);
 								}}
-								value={workout.reps}
+								value={reps}
 								placeholder={workout.reps}
 								required
 							/>

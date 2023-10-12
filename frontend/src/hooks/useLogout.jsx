@@ -1,5 +1,5 @@
-import useAuthContext from "../hooks/useAuthContext";
-import useWorkoutsContext from "../hooks/useWorkoutsContext";
+import useAuthContext from "./useAuthContext";
+import useWorkoutsContext from "./useWorkoutsContext";
 
 const useLogout = () => {
 	const { dispatch } = useAuthContext();
