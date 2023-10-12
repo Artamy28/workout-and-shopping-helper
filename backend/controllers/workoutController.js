@@ -86,7 +86,9 @@ const updateWorkout = async (req, res) => {
 		return res.status(404).json({ error: "No such workout to UPDATE" });
 	}
 
-	res.status(200).json(workout);
+	const updatedWorkout = await Workout.findById(id);
+
+	res.status(200).json(updatedWorkout);
 };
 
 module.exports = {
