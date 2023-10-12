@@ -161,3 +161,7 @@ form.login {
 	background: #fff;
 	border-radius: 4px;
 }
+
+.account-credentials {
+	margin-top: 15rem;
+}
