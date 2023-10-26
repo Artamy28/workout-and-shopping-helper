@@ -17,6 +17,10 @@ app.use((req, res, next) => {
 });
 
 // Routes
+app.get("/", async (req, res) => {
+	res.send("Hello!");
+});
+
 app.use("/api/workouts", workoutRoutes);
 app.use("/api/user", userRoutes);
 
