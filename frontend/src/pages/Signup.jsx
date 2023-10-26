@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useSignup from "../hooks/useSignup";
 
 const Signup = () => {
@@ -11,6 +11,15 @@ const Signup = () => {
 		e.preventDefault();
 		await signup(email, password);
 	};
+
+	useEffect(() => {
+		const ping = async () => {
+			fetch("https://workout-helper-backend-lw08.onrender.com").then(
+				console.log("Server pinged.")
+			);
+		};
+		ping();
+	}, []);
 
 	return (
 		<form className="signup" onSubmit={handleSubmit}>

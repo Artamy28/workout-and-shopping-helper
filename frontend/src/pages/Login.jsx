@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useLogin from "../hooks/useLogin";
 
 const Login = () => {
@@ -11,6 +11,15 @@ const Login = () => {
 		e.preventDefault();
 		await login(email, password);
 	};
+
+	useEffect(() => {
+		const ping = async () => {
+			fetch("https://workout-helper-backend-lw08.onrender.com").then(
+				console.log("Server pinged.")
+			);
+		};
+		ping();
+	}, []);
 
 	return (
 		<>
@@ -43,11 +52,11 @@ const Login = () => {
 					Use these credentials if you want to try out the website, and don't
 					want to create an account
 					<br />
-					<p>
-						<strong>Email: </strong>test@gmail.com
-						<br />
-						<strong>Password: </strong>ABCabc123@
-					</p>
+				</p>
+				<p>
+					<strong>Email: </strong>test@gmail.com
+					<br />
+					<strong>Password: </strong>ABCabc123@
 				</p>
 			</div>
 		</>

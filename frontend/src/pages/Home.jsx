@@ -32,6 +32,15 @@ const Home = () => {
 		}
 	}, [dispatch, user]);
 
+	useEffect(() => {
+		const ping = async () => {
+			fetch("https://workout-helper-backend-lw08.onrender.com").then(
+				console.log("Server pinged.")
+			);
+		};
+		ping();
+	}, []);
+
 	return (
 		<div className="home">
 			<div className="workouts">
